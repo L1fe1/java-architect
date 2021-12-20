@@ -31,4 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/mvnw.cmd
+/src/test/java/com/l1fe1/eurekaserver/EurekaServerApplicationTests.java
