@@ -31,6 +31,8 @@ public class DemoController {
     // spring 官方定义的负载均衡抽象接口
     @Autowired
     private LoadBalancerClient loadBalancerClient;
+    @Autowired
+    private RestTemplate restTemplate;
 
     @GetMapping("/serviceInfo")
     public String serviceInfo() {
@@ -70,5 +72,13 @@ public class DemoController {
         String response = restTemplate.getForObject(url, String.class);
         logger.info(response);
         return "";
+    }
+
+    @GetMapping("/loadBalance")
+    public String loadBalance() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client-provider");
+        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/port";
+        String response = restTemplate.getForObject(url, String.class);
+        return response;
     }
 }
