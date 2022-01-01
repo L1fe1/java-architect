@@ -33,6 +33,8 @@ public class DemoController {
     private LoadBalancerClient loadBalancerClient;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private RestTemplate lbRestTemplate;
 
     @GetMapping("/serviceInfo")
     public String serviceInfo() {
@@ -79,6 +81,13 @@ public class DemoController {
         ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client-provider");
         String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/port";
         String response = restTemplate.getForObject(url, String.class);
+        return response;
+    }
+
+    @GetMapping("/loadBalanced")
+    public String loadBalanced() {
+        String url = "http://eureka-client-provider/port";
+        String response = lbRestTemplate.getForObject(url, String.class);
         return response;
     }
 }
