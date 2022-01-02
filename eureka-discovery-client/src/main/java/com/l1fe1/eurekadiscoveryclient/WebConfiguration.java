@@ -21,6 +21,14 @@ public class WebConfiguration {
     }
 
     @Bean
+    @LoadBalanced
+    public RestTemplate lbInterceptorRestTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors().add(new LoginClientHttpRequestInterceptor());
+        return restTemplate;
+    }
+
+    @Bean
     public IRule myRule() {
         return new RandomRule();
     }
