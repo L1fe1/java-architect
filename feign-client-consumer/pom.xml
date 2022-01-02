@@ -31,6 +31,10 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-httpclient</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.l1fe1</groupId>
 			<artifactId>feign-api-provider</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
