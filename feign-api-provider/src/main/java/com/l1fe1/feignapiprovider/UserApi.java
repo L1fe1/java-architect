@@ -16,10 +16,25 @@ public interface UserApi {
     String hello();
 
     /**
+     * 超时重试
+     * @return 端口号
+     */
+    @GetMapping("/timeoutRetry")
+    String timeoutRetry();
+
+    /**
      * 传参调用，@RequestParam("id") 必须要写，否则报 500
      * @param id id
      * @return map
      */
     @GetMapping("/param")
     Map<Integer, String> getForParam(@RequestParam("id") Integer id);
+
+    /**
+     * 通过 map 传递多个参数
+     * @param map 参数 map
+     * @return map
+     */
+    @GetMapping("/multiParams")
+    Map<String, Object> getForMultiParams(@RequestParam Map<String, Object> map);
 }
