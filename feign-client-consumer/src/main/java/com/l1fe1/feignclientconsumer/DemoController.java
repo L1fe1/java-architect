@@ -32,4 +32,9 @@ public class DemoController {
     public Map<String, Object> getForMultiParams(@RequestParam Map<String, Object> map) {
         return userApi.getForMultiParams(map);
     }
+
+    @GetMapping("/fallback")
+    public String fallback() {
+        return userApi.fallback();
+    }
 }

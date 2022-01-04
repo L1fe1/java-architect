@@ -37,4 +37,11 @@ public interface UserApi {
      */
     @GetMapping("/multiParams")
     Map<String, Object> getForMultiParams(@RequestParam Map<String, Object> map);
+
+    /**
+     * api 接口 fallback
+     * @return fallback
+     */
+    @GetMapping("/fallback")
+    String fallback();
 }

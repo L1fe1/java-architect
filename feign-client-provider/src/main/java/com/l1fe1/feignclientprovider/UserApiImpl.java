@@ -54,4 +54,10 @@ public class UserApiImpl implements UserApi {
     public Map<String, Object> getForMultiParams(@RequestParam Map<String, Object> map) {
         return map;
     }
+
+    @Override
+    public String fallback() {
+        int i = 1 / 0;
+        return String.valueOf(i);
+    }
 }

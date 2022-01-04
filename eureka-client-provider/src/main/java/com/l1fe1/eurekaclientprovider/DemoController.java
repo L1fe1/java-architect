@@ -68,4 +68,10 @@ public class DemoController {
     public Person exchange(@RequestBody Person person) {
         return person;
     }
+
+    @GetMapping("/fallback")
+    public String fallback() {
+        int i = 1 / 0;
+        return String.valueOf(i);
+    }
 }
