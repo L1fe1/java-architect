@@ -39,6 +39,14 @@
 			<artifactId>feign-httpclient</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.l1fe1</groupId>
 			<artifactId>feign-api-provider</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
