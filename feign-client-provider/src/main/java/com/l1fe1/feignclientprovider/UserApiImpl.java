@@ -56,8 +56,15 @@ public class UserApiImpl implements UserApi {
     }
 
     @Override
+    @GetMapping("/fallback")
     public String fallback() {
         int i = 1 / 0;
         return String.valueOf(i);
+    }
+
+    @Override
+    @GetMapping("/zuul")
+    public String zuul() {
+        return "Provider:" + port;
     }
 }

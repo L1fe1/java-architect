@@ -30,4 +30,9 @@ public class ConsumerApiFallback implements ConsumerApi {
     public String fallback() {
         return "fallback() 接口请求失败，执行 fallback 逻辑";
     }
+
+    @Override
+    public String zuul() {
+        return null;
+    }
 }

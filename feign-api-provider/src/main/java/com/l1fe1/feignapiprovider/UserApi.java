@@ -44,4 +44,11 @@ public interface UserApi {
      */
     @GetMapping("/fallback")
     String fallback();
+
+    /**
+     * api 接口 zuul
+     * @return provider consumer 端口
+     */
+    @GetMapping("/zuul")
+    String zuul();
 }

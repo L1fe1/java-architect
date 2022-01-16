@@ -48,6 +48,11 @@ public class ConsumerApiFallbackFactory implements FallbackFactory<ConsumerApi> 
                     return "其他异常";
                 }
             }
+
+            @Override
+            public String zuul() {
+                return null;
+            }
         };
     }
 }

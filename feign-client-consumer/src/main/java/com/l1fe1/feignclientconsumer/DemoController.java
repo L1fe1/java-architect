@@ -2,6 +2,7 @@ package com.l1fe1.feignclientconsumer;
 
 import com.l1fe1.feignapiprovider.UserApi;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,9 @@ import java.util.Map;
 public class DemoController {
     @Autowired
     private UserApi userApi;
+
+    @Value("${server.port}")
+    String port;
 
     @GetMapping("/hello")
     public String hello() {
@@ -36,5 +40,10 @@ public class DemoController {
     @GetMapping("/fallback")
     public String fallback() {
         return userApi.fallback();
+    }
+
+    @GetMapping("/zuul")
+    public String zuul() {
+        return "Consumer:" + port + "=====>>>>>" + userApi.zuul();
     }
 }
