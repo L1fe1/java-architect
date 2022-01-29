@@ -1,12 +1,15 @@
 package com.l1fe1.feignclientconsumer;
 
 import com.l1fe1.feignapiprovider.UserApi;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -16,6 +19,8 @@ public class DemoController {
 
     @Value("${server.port}")
     String port;
+
+    private static final Logger logger = LoggerFactory.getLogger(DemoController.class);
 
     @GetMapping("/hello")
     public String hello() {
@@ -45,5 +50,14 @@ public class DemoController {
     @GetMapping("/zuul")
     public String zuul() {
         return "Consumer:" + port + "=====>>>>>" + userApi.zuul();
+    }
+
+    @GetMapping("/token")
+    public String token(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        String cookie = request.getHeader("Cookie");
+        logger.info("token:{}", token);
+        logger.info("cookie:{}", cookie);
+        return "token: " + token + ",cookie: " + cookie;
     }
 }
