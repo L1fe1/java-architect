@@ -7,3 +7,9 @@ Cache-Control: no-cache
 #######
 GET http://127.0.0.1:8080/api/v1/users?size=3&page=0
 ###
+
+###
+GET http://127.0.0.1:8080/api/v1/page
+
+###
+GET http://127.0.0.1:8080/api/v1/sort
