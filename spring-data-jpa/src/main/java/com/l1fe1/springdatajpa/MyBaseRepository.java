@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 @NoRepositoryBean
 public interface MyBaseRepository<T,ID extends Serializable> extends Repository<T,ID> {
-	T findOne(ID id);
+	T findById(ID id);
 	T save(T entity);
 }

@@ -2,9 +2,13 @@ package com.l1fe1.springdatajpa;
 
 import org.springframework.data.repository.Repository;
 import org.springframework.lang.Nullable;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.util.concurrent.ListenableFuture;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Future;
 
 public interface UserRepository extends Repository<User, Long> {
     /**
@@ -30,4 +34,27 @@ public interface UserRepository extends Repository<User, Long> {
      * @return
      */
     List<User> findByEmailAndName(String email, String name);
+
+    @Async
+    Future<User> findByFirstname(String firstname);
+
+    @Async
+    CompletableFuture<User> findOneByFirstname(String firstname);
+
+    @Async
+    ListenableFuture<User> findOneByLastname(String lastname);
+
+    /**
+     * 只返回 name和 email 的 DTO
+     * @param email
+     * @return
+     */
+    UserOnlyNameEmailDto findByEmail(String email);
+
+    /**
+     * 接口的方式返回 DTO
+     * @param address
+     * @return
+     */
+    UserOnlyName findByAddress(String address);
 }
