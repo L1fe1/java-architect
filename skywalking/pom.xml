@@ -22,6 +22,7 @@
         <module>demo-provider</module>
         <module>demo-webapp</module>
         <module>demo-agent</module>
+        <module>demo-main</module>
     </modules>
     <dependencies>
         <dependency>
