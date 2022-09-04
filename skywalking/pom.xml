@@ -15,7 +15,7 @@
     <name>skywalking</name>
     <description>skywalking</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <modules>
         <module>demo-api</module>

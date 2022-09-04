@@ -14,7 +14,7 @@ public class Transformer implements ClassFileTransformer {
             return null;
         }
         // 读取 DemoClass.class.2.2 这个 class 文件，作为 DemoClass 类的新定义
-        return getBytesFromFile("/Users/feili/IdeaProjects/java-architect/skywalking/demo-agent/src/main/java/com/l1fe1/demoagent/DemoClass.class.2");
+        return getBytesFromFile("E:\\IdeaProjects\\java-architect\\skywalking\\demo-agent\\src\\main\\java\\com\\l1fe1\\demoagent\\DemoClass.class.2");
     }
 
     public static byte[] getBytesFromFile(String fileName) {
