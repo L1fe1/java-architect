@@ -23,6 +23,7 @@
         <module>demo-webapp</module>
         <module>demo-main</module>
         <module>demo-bytebuddy</module>
+        <module>demo-log</module>
     </modules>
     <dependencies>
         <dependency>
